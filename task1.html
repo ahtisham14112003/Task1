@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+// ========================Problem 1=============================
+
+      function calculateAge(dateOfBirth) {
+    const today = new Date();
+    const dob = new Date(dateOfBirth);
+    let age = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+
+function determineAgeCategory(age) {
+    if (age < 18) {
+        return 'child';
+    } else if (age >= 18 && age < 65) {
+        return 'adult';
+    } else {
+        return 'senior citizen';
+    }
+}
+
+function main() {
+    const dateOfBirthInput = prompt("Enter your date of birth (e.g., March 11, 1999): ");
+
+    const age = calculateAge(dateOfBirthInput);
+    const ageCategory = determineAgeCategory(age);
+
+    document.write(`Your age = ${age}`, "<br>");
+    document.write(`Your age category = ${ageCategory}`);
+}
+
+
+main();
+
+
+
+
+    </script>
+</body>
+</html>
